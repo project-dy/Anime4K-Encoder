@@ -12,8 +12,9 @@ Makes it easy to encode a Anime using the MPV shaders with predefined encoding p
 - Removed NVENC
 - Ability to choose CRF when encoding
 - Auto burn in subs to eliminate a extra step [optional]
-- Cleaned Up the code to make it easier to modify
-- Butchered the code because I dont know how to code
+- Removed the second encoding option/mode, as I couldn't find a purpose appart from creating generation loss.
+- Rearranged the code partially and added more comments to make it easier to modify.
+- Butchered the code because I dont know how to code.
 
 ## Installing / Getting started
 
@@ -106,7 +107,7 @@ This is a list of things that I've encountered but it may or may not be true for
 - I deprecated the NVENC since it butchers enormoulsy the quality of the video, even on high bitrates, and for that occasion just use x264.
 
 ## Benchmarks
-Absolutely not a scientific test, done on a Ryzen 5 3600
+Absolutely not a scientific test, done on a Ryzen 5 3600, GTX 1050ti
 
 x264 | Fast | B+B = 0.9 Speed (12-14 fps)
 x265 | Fast | B+B = 0.4 Speed (5-8 Fps)
