@@ -5,7 +5,6 @@ from extract_audio import extract_audio
 from extract_subs import extract_subs
 from mux import mux
 from shader import shader
-from encode import encode_to_hevc
 from splitter import split_by_seconds, get_video_length
 
 credz()
@@ -52,8 +51,6 @@ elif mode == "mux":
     mux(fn, outname)
 elif mode == "shader":
     shader(fn, args['width'], args['height'], args['shader_dir'], args['bit'], outname)
-elif mode == "encode":
-    encode_to_hevc(fn, outname)
 elif mode == "split":
     length = get_video_length(fn)
     split_by_seconds(filename=fn, split_length=args['split_length'], video_length=length, split_dir=args['output'])

@@ -22,14 +22,14 @@ def extract_audio(fn):
         convert_choice = convert_menu.show()
         if convert_choice == 0:
             for f in flacs:
-                br_menu = TerminalMenu(["Stereo", "5.1", "7.1"], title="Whats the format of the file? => {0}".format(f))
+                br_menu = TerminalMenu(["192K", "256K", "320K"], title="Whats the format of the file? => {0}".format(f))
                 br_choice = br_menu.show()
                 if br_choice == 0:
                     br = "192K"
                 elif br_choice == 1:
-                    br = "384K"
+                    br = "256K"
                 elif br_choice == 2:
-                    br = "512K"
+                    br = "320K"
                 else:
                     br = "192K"
                 fn_base = f.split(".")[0]
