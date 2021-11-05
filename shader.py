@@ -140,7 +140,7 @@ def shader(fn, width, height, shader, ten_bit, outname):
     if cg_choice == 0:
         avc_shader(fn, width, height, shader, ten_bit, outname, files=files)
     elif cg_choice == 1:
-        avc_shader(fn, width, height, shader, ten_bit, outname, files=files)
+        hevc_shader(fn, width, height, shader, ten_bit, outname, files=files)
     else:
         print("Cancel")
         sys.exit(-2)
@@ -202,6 +202,8 @@ def avc_shader(fn, width, height, shader, ten_bit, outname, files=[]):
             "--tscale=oversample",
             '--vf=gpu=w=' + str(width) + ':h=' + str(height),
             "--glsl-shaders=" + str_shaders,
+            "--oac=libopus",
+            "--oacopts=b=192k",
             "--ovc=libx264",
             '--ovcopts=preset=' + codec_preset + ',level=6.1,crf=' + str(crf) + ',aq-mode=3,psy-rd=1.0,bf=6',
             '--vf-pre=sub',
@@ -226,6 +228,8 @@ def avc_shader(fn, width, height, shader, ten_bit, outname, files=[]):
                 "--tscale=oversample",
                 '--vf=gpu=w=' + str(width) + ':h=' + str(height),
                 "--glsl-shaders=" + str_shaders,
+                "--oac=libopus",
+                "--oacopts=b=192k",
                 "--ovc=libx264",
                 '--ovcopts=preset=' + codec_preset + ',level=6.1,crf=' + str(crf) + ',aq-mode=3,psy-rd=1.0,bf=8',
                 '--vf-pre=sub',
@@ -286,7 +290,9 @@ def hevc_shader(fn, width, height, shader, ten_bit, outname, files=[]):
             "--tscale=oversample",
             '--vf=gpu=w=' + str(width) + ':h=' + str(height),
             "--glsl-shaders=" + str_shaders,
-            "--ovc=" + "libx265",
+            "--oac=libopus",
+            "--oacopts=b=192k",
+            "--ovc=libx265",
             '--ovcopts=preset=' + codec_preset + ',level=6.1,crf=' + str(crf) + ',aq-mode=3,psy-rd=1.0,bf=6',
             '--vf-pre=sub',
             '--o=' + outname
@@ -310,6 +316,8 @@ def hevc_shader(fn, width, height, shader, ten_bit, outname, files=[]):
                 "--tscale=oversample",
                 '--vf=gpu=w=' + str(width) + ':h=' + str(height),
                 "--glsl-shaders=" + str_shaders,
+                "--oac=libopus",
+                "--oacopts=b=192k",
                 "--ovc=libx265",
                 '--ovcopts=preset=' + codec_preset + ',level=6.1,crf=' + str(crf) + ',aq-mode=3,psy-rd=1.0,bf=8',
                 '--vf-pre=sub',
