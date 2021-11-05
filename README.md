@@ -12,7 +12,7 @@ Makes it easy to encode a Anime using the MPV shaders with predefined encoding p
 - Removed NVENC
 - Ability to choose CRF when encoding
 - Auto burn in subs to eliminate a extra step [optional]
-- Removed the second encoding option/mode, as I couldn't find a purpose appart from creating generation loss.
+- Removed the second encoding option/mode, as I couldn't find a purpose apart from creating generation loss.
 - Rearranged the code partially and added more comments to make it easier to modify.
 - Butchered the code because I dont know how to code.
 
