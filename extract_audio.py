@@ -1,5 +1,5 @@
 from pymkv import MKVFile
-from simple_term_menu import TerminalMenu
+# from simple_term_menu import TerminalMenu
 import subprocess, sys, os, glob, time
 from utils import language_mapping, is_tool
 
@@ -13,17 +13,24 @@ def extract_audio(fn):
             lang = language_mapping[track._language]
             id = str(track._track_id)
             subprocess.call(['mkvextract', 'tracks', fn, id + ':' + lang + '.' + ext])
-    
+
     flacs = []
     for file in glob.glob("*.FLAC"):
             flacs.append(file)
     if len(flacs) > 0:
-        convert_menu = TerminalMenu(["Yes", "No"], title="Do you want to convert every FLAC to Opus?")
-        convert_choice = convert_menu.show()
+        # convert_menu = TerminalMenu(["Yes", "No"], title="Do you want to convert every FLAC to Opus?")
+        # convert_choice = convert_menu.show()
+        print("Do you want to convert every FLAC to Opus?[Yes/No][if yes, enter 0, if no, enter 1]")
+        convert_choice = input("Enter your choice: ")
         if convert_choice == 0:
             for f in flacs:
-                br_menu = TerminalMenu(["192K", "256K", "320K"], title="Whats the format of the file? => {0}".format(f))
-                br_choice = br_menu.show()
+                # br_menu = TerminalMenu(["192K", "256K", "320K"], title="Whats the format of the file? => {0}".format(f))
+                # br_choice = br_menu.show()
+                print("Whats the format of the file? => {0}".format(f))
+                print("1. 192K")
+                print("2. 256K")
+                print("3. 320K")
+                br_choice = int(input("Enter your choice: "))-1
                 if br_choice == 0:
                     br = "192K"
                 elif br_choice == 1:
