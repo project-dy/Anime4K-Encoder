@@ -206,7 +206,7 @@ def avc_shader(fn, width, height, shader, ten_bit, outname, files=[]):
     if len(files) == 0:
         subprocess.call([
             "mpv",
-            "--vf=format=" + format,
+            #"--vf=format=" + format,
             fn,
             "--profile=gpu-hq",
             "--scale=ewa_lanczossharp",
@@ -232,7 +232,7 @@ def avc_shader(fn, width, height, shader, ten_bit, outname, files=[]):
             name = name[len(name) - 1]
             subprocess.call([
                 "mpv",
-                "--vf=format=" + format,
+                #"--vf=format=" + format,
                 "temp.mkv",
                 "--profile=gpu-hq",
                 "--scale=ewa_lanczossharp",
@@ -295,7 +295,7 @@ def hevc_shader(fn, width, height, shader, ten_bit, outname, files=[]):
     if len(files) == 0:
         subprocess.call([
             "mpv",
-            "--vf=format=" + format,
+            #"--vf=format=" + format,
             fn,
             "--profile=gpu-hq",
             "--scale=ewa_lanczossharp",
@@ -321,7 +321,7 @@ def hevc_shader(fn, width, height, shader, ten_bit, outname, files=[]):
             name = name[len(name) - 1]
             subprocess.call([
                 "mpv",
-                "--vf=format=" + format,
+                #"--vf=format=" + format,
                 "temp.mkv",
                 "--profile=gpu-hq",
                 "--scale=ewa_lanczossharp",
